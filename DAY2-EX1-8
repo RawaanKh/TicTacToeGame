@@ -1,0 +1,86 @@
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner s= new Scanner(System.in );
+
+
+        //Ex 1
+        System.out.print("input first number");
+            int x=s.nextInt();
+        System.out.print("input second number");
+            int y=s.nextInt();
+            System.out.println(x+" + "+y+"="+(x+y));
+        System.out.println(x+" - "+y+"="+(x-y));
+        System.out.println(x+" * "+y+"="+(x*y));
+        System.out.println(x+" / "+"="+(x/y));
+        System.out.println(x+" mod "+y+"="+(x%y));
+
+        // Ex 2
+       System.out.print("input a String");
+       String text=s.nextLine();
+       System.out.println(text.toLowerCase());
+
+        // Ex 3
+        System.out.println("input a string:");
+        String Rev=s.nextLine();
+        for (int i = Rev.length(); i >0 ; i--)
+        System.out.print(Rev.charAt(i-1));
+        //Ex 4
+        System.out.print("input a number:");
+        int isEven=s.nextInt();
+        if(isEven%2==0)
+           System.out.println("1") ;
+       else System.out.println("0") ;
+
+        //Ex 5
+       System.out.println("what is your role");
+        String role=s.nextLine();
+       if(role.equals("admin"))
+           System.out.println("welcome admin");
+       else if (role.equals("superuser"))
+            System.out.println("welcome superuser ");
+        else if (role.equals("user"))
+            System.out.println("welcome user ");
+        // Ex6
+        System.out.print("input first number");
+           int A=s.nextInt();
+        System.out.print("input second number");
+            int B=s.nextInt();
+        System.out.print("input Third number");
+        int C=s.nextInt();
+        if((A+B)==C)
+       System.out.println("True");
+        //Ex7
+        System.out.print("input the 1st number");
+         int num1=s.nextInt();
+       System.out.print("input the 2nd number");
+           int num2=s.nextInt();
+        System.out.print("input 3rd number");
+        int num3=s.nextInt();
+
+        if (num1 > num2 && num1 > num3)
+                System.out.println("The greatest: " + num1);
+        if (num2 > num1 && num2 > num3)
+               System.out.println("The greatest: " + num2);
+        if (num3 > num1 && num3 > num2)
+                System.out.println("The greatest: " + num3);
+    //Ex 8
+        System.out.println("Input Number:");
+        int DayNum=s.nextInt();
+        if(DayNum == 1)
+            System.out.println("Monday");
+        else if(DayNum == 2)
+            System.out.println("Tuesday");
+        else if(DayNum == 3)
+            System.out.println("Wednesday");
+        else if(DayNum == 4)
+            System.out.println("Thursday");
+        else if(DayNum == 5)
+            System.out.println("Friday");
+        else if(DayNum == 6)
+            System.out.println("Saturday");
+        else if(DayNum == 7)
+            System.out.println("Suynday");
+    }
+
+}
