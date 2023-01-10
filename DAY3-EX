@@ -1,0 +1,109 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+       // EX1
+        for (int i = 0; i < 100; i++) {
+            if (i % 5 == 0 && i % 3 == 0)
+                System.out.println("FizzBuzz");
+            else if (i % 5 == 0)
+                System.out.println("Buzz");
+            else if (i % 3 == 0)
+                System.out.println("Fizz");
+        }
+       // EX2 HAS BEEN DONE IN SECOND DAY ASSIGMENT
+       // EX3
+        System.out.println("Please enter a positive number");
+        int num = s.nextInt();
+        if (num > 0){
+            for (int i = 1; i <= 10; i++) {
+                System.out.println(i + " x" + num +"="+(i*num)) ;}
+            }
+        else System.out.println("Invalid Number");
+        //Ex4
+         int x=1;
+        System.out.println("Enter a Number");
+        int numFact=s.nextInt();
+        for(int i=1;i<=numFact;i++){
+            x=x*i;
+        }
+        System.out.println(" The Factorial Is "+x);
+       // Ex5
+        int power = 1;
+        System.out.println(" Please enter two numbers ");
+        int n1 = s.nextInt();
+        int n2 = s.nextInt();
+        while (n2!=0){
+            power=power*n1;
+             n2--;
+        }
+        System.out.println(power);
+        // Ex 6
+
+        int even = 0;
+        int odd = 0;
+        System.out.println("How many numbers do you need" );
+              int counter=s.nextInt();
+        System.out.println("Enter Numbers ");
+        for (int i = 0; i <counter ; i++) {
+            int toSum=s.nextInt();
+            if (toSum % 2 == 0)
+                even += toSum;
+            else
+                odd += toSum;
+        }
+        System.out.println("Even sum: " + even);
+        System.out.println("Odd sum: " + odd);
+        //Ex7
+        System.out.println("Please enter a number to check weather prime or not ");
+        int isPrime=s.nextInt();
+         if(isPrime%2!=0)
+             System.out.println("IS PRIME ");
+         else
+             System.out.println("NOT PRIME " );
+
+        // Ex8
+        int sumP=0,sumN=0,sumZ=0;
+        System.out.println("How many numbers do you need" );
+        int many=s.nextInt();
+        System.out.println("Enter numbers" );
+        for (int i = 0; i < many; i++) {
+            int D = s.nextInt();
+
+            if (D > 0)
+                sumP = sumP + D;
+            else if (D < 0)
+                sumN = sumN + D;
+            else
+                sumZ = sumZ + D;
+        }
+
+        System.out.println("sum of positive is:" +sumP);
+        System.out.println("sum of negative is:" +sumN);
+        System.out.println("sum of Zeros is:" +sumZ);
+       // ex9
+
+        for (int i = 1; i <=4 ; i++) {
+            System.out.println("Week"+i);
+            for (int j = 1; j <=7; j++) {
+                System.out.println("Day" +j);
+            }
+        }
+        //Ex 10
+        System.out.println("Enter Word");
+        String isP=s.nextLine();
+        String rev="";
+        for (int i = isP.length() - 1; i >= 0; i--) {
+            rev = rev + isP.charAt(i);
+        }
+
+        if (isP.equals(rev)) {
+            System.out.println("it is a palindrome");
+        }
+        else
+            System.out.println("not palindrome");
+
+    }
+
+}
