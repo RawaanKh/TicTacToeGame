@@ -1,0 +1,181 @@
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner s = new Scanner(System.in);
+        //Ex1
+        int[] num = {10, 12, 9, 10};
+        if (num[0] == num[num.length - 1])
+            System.out.println("they are the same");
+        else
+            System.out.println("they are not the same");
+
+        //Ex2
+        ArrayList<Integer> numList = new ArrayList<Integer>();
+        numList.add(10);
+        numList.add(12);
+        numList.add(3);
+        numList.add(48);
+        numList.add(33);
+        numList.add(17);
+        int maximum = numList.get(0);
+        for (int i = 1; i < numList.size(); i++) {
+            if (maximum < numList.get(i))
+                maximum = numList.get(i);
+        }
+             System.out.println("the maximum is = " + maximum);
+        //Ex3
+        int sum=0;
+        for (int i = 0; i < num.length; i++) {
+           sum+=num[i];
+        }
+             double avg=(double) sum/ num.length;
+        System.out.println("the average is = "+avg );
+        for (int j= 0; j< num.length; j++) {
+              if(num[j]>avg)
+                System.out.println("the greater numbers are= "+num[j]);
+        }
+        //EX4
+          int [] arr={20,30,40};
+        int first=arr[0];
+        int last=arr[2];
+        if(first>last)
+        System.out.println("Larger value between first and last element: "+first);
+        else
+            System.out.println("Larger value between first and last element: "+last);
+    //    Ex5
+        int[] array_nums = {20, 30, 40};
+        System.out.println("Old array: "+Arrays.toString(array_nums));
+        int x = array_nums[0];
+        array_nums[0] = array_nums[array_nums.length-1];
+        array_nums[array_nums.length-1] = x;
+        System.out.println("new array: "+Arrays.toString(array_nums));
+ //Ex6
+        String [] dict = {"cat", "dog", "red", "is"};
+        ArrayList<String> words= new ArrayList<String>();
+
+
+           int theLongest=0;
+        for (String check: dict) {
+            int length = check.length();
+            if (length > theLongest) {
+                theLongest= length;
+                words.clear();
+            }
+            if (length == theLongest) {
+                words.add(check);
+            }
+        }
+        System.out.println(words);
+        //Ex7
+        System.out.println("to enter element to the array presse 1" +
+                "Display elements of an array presse 2" +
+                "Search the element within array presse 3" +
+                "to Sort the array presse 4");
+
+       int option =s.nextInt();
+       int arr[];
+       switch (option) {
+           case 1:
+               System.out.println("enter the size of the array");
+           int size=s.nextInt();
+            arr=new int [size];
+               System.out.println("enter the elemnts");
+        for (int i = 0; i <size ; i++) {
+            arr[i]=s.nextInt();
+        } break;
+           case 2:
+               System.out.println("enter the size of the array");
+                size=s.nextInt();
+               System.out.println("the elemnts are");
+               for (int i=0 ; i < size; i++) {
+                   System.out.println(arr[i]);
+               } break;
+           case 3:
+               System.out.println(" which elemnt do you want to search for");
+                         int search=s.nextInt();
+
+                             for (int i = 0; i < arr.length ; i++) {
+                                 if(search==arr[i])
+                                 System.out.println("found");
+                         else
+                                 System.out.println("not found");
+                             } break;;
+           case 4:
+               System.out.println("enter the size of the array");
+               size=s.nextInt();
+               for (int i = 0; i < size; i++)
+               {
+                   for (int j = i + 1; j < size; j++)
+                   {
+                       int tmp = 0;
+                       if (arr[i] > arr[j])
+                       {
+                           tmp = arr[i];
+                           arr[i] = arr[j];
+                           arr[j] = tmp;
+                       }
+                   }
+                   System.out.println(arr[i]);
+               }
+       }
+
+
+        //Ex8
+        int inp,x,  count = 0, i = 0;
+        System.out.print("How many numbers do you want in the array:");
+        inp = s.nextInt();
+        int a[] = new int[inp];
+        System.out.println("Enter the elements:");
+        for(i = 0; i < inp; i++)
+            a[i] = s.nextInt();
+
+        System.out.print("which number you want to count its occurrences:");
+        x = s.nextInt();
+        for(i = 0; i < inp; i++)
+        {
+            if(a[i] == x)
+            {
+                count++;
+            }
+        }
+        System.out.println(x+" Occurs"+count);
+        //EX9
+        int[] ToSort = {1, 7, 4, 5, 9, 3, 4, 6, 8};
+        int ToSortSize = ToSort.length;
+        int evenSize = 0;
+        int oddSize = 0;
+        for (int i = 0; i < ToSortSize; i++) {
+            if (ToSort[i] % 2 == 0)
+                evenSize++;
+            else
+                oddSize++;
+        }
+            int[] even = new int[evenSize];
+            int[] odd  = new int[oddSize];
+
+            int e = 0, o = 0;
+
+            for (int y = 0; y < ToSortSize; y++) {
+                if (ToSort[y] % 2 != 0)
+                  odd[o++] = ToSort[y];
+                else
+                   even[e++] = ToSort[y];
+
+            }
+            int [] newArr = new int[evenSize+oddSize];
+        for (int i = 0; i < newArr.length; i++) {
+            newArr[i]=odd[i];
+        }
+
+        // EX10
+        int [] arr1 = new int [] {2,3,6,6,4};
+        int [] arr2 = new int [] {2,3,6,6,4};
+        System.out.println(Arrays.equals(arr1, arr2));
+
+    }
+}
