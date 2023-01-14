@@ -1,0 +1,119 @@
+import java.util.Scanner;
+import java.util.Random;
+public class Main {
+    public static void main(String[] args) {
+        Scanner s =new Scanner(System.in);
+        Random Choices=new Random();
+        char[] [] xoTable =new char[3][3]; // to have empty table
+        xoTable[0][0]=' ';
+        xoTable[0][1]=' ';
+        xoTable[0][2]=' ';
+        xoTable[1][0]=' ';
+        xoTable[1][1]=' ';
+        xoTable[1][2]=' ';
+        xoTable[2][0]=' ';
+        xoTable[2][1]=' ';
+        xoTable[2][1]=' ';
+
+        while (true) {
+            displayTable(xoTable);
+            System.out.println("IT'S PLAYER 1 TURN \n" +
+                    "CHOOSE ROW (0-2)");
+            int P1Row=s.nextInt();
+            System.out.println("CHOOSE COLUMN (0-2)");
+            int P1Column=s.nextInt();
+            if(isValidMoveX(xoTable,P1Row,P1Column)) {
+                xoTable[P1Row][P1Column] = 'x';
+                displayTable(xoTable);
+                if (isXWin(xoTable)) {
+                    System.out.println("X IS THE WINNER");
+                    break;
+                }
+            }
+            else
+                System.out.println("NOT AVAILABLE CELL");
+            //----------------------------------------------------
+            System.out.println("IT'S PLAYER 2 TURN \n" +
+                    "CHOOSE ROW (0-2)");
+            int P2Row=Choices.nextInt(2);
+            System.out.println("CHOOSE COLUMN (0-2)");
+            int P2Column=Choices.nextInt(2);
+            if(isValidMoveO(xoTable,P2Row,P2Column)) {
+                xoTable[P2Row][P2Column] = 'o';
+                if (isOWin(xoTable)) {
+                    System.out.println("COMPUTER IS THE WINNER");
+                    break;
+                }
+            }
+            else
+                System.out.println("NOT AVAILABLE CELL");
+        }
+    }
+   // TO PRINT TABLE
+    public static void displayTable(char[] [] xoTable){
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                System.out.print(xoTable[i][j]+"|");
+            }
+            System.out.print(xoTable[i][2]);
+            System.out.println();
+            System.out.println("------");
+        }
+        for (int j = 0; j < 2; j++) {
+            System.out.print(xoTable[2][j]+"|");
+        }
+        System.out.print(xoTable[2][2]);
+        System.out.println();
+    }
+    // TO CHECK THE LINES AND DIAGONALS FOR X
+    public static boolean isXWin(char[] [] xoTable){
+        if((xoTable[0][0]=='x'&& xoTable[0][1]=='x' && xoTable[0][2]=='x') ||
+           (xoTable[1][0]=='x'&& xoTable[1][1]=='x' && xoTable[1][2]=='x') ||
+          (xoTable[2][0]=='x'&& xoTable[2][1]=='x' && xoTable[2][2]=='x')||
+
+
+                (xoTable[0][0]=='x'&& xoTable[1][1]=='x' && xoTable[2][2]=='x') ||
+                (xoTable[0][2]=='x'&& xoTable[1][1]=='x' && xoTable[2][0]=='x') ||
+
+
+        (xoTable[0][0]=='x'&& xoTable[1][0]=='x' && xoTable[2][0]=='x') ||
+                (xoTable[0][1]=='x'&& xoTable[1][1]=='x' && xoTable[2][1]=='x') ||
+                 (xoTable[0][2]=='x'&& xoTable[1][2]=='x' && xoTable[2][2]=='x'))
+        {
+            return true;
+        }
+        return false;
+    }
+    // TO CHECK THE LINES AND DIAGONALS FOR Y
+    public static boolean isOWin(char[] [] xoTable){
+        if((xoTable[0][0]=='o'&& xoTable[0][1]=='o' && xoTable[0][2]=='o') ||
+                (xoTable[1][0]=='o'&& xoTable[1][1]=='o' && xoTable[1][2]=='o') ||
+                (xoTable[2][0]=='o'&& xoTable[2][1]=='o' && xoTable[2][2]=='o')||
+
+
+                (xoTable[0][0]=='o'&& xoTable[1][1]=='o' && xoTable[2][2]=='o') ||
+                (xoTable[0][2]=='o'&& xoTable[1][1]=='o' && xoTable[2][0]=='o') ||
+
+
+                (xoTable[0][0]=='o'&& xoTable[1][0]=='o' && xoTable[2][0]=='o') ||
+                (xoTable[0][1]=='o'&& xoTable[1][1]=='o' && xoTable[2][1]=='o') ||
+                (xoTable[0][2]=='o'&& xoTable[1][2]=='o' && xoTable[2][2]=='o'))
+        {
+            return true;
+        }
+        return false;
+    }
+    //CHECK WEATHER EMPTY OR NOT FOR X
+    public static boolean isValidMoveX(char[] [] xoTable,int P1Row,int P1Column){
+        if(xoTable[P1Row][P1Column]== ' ') {
+            return true;
+        }
+        return false;
+    }
+    public static boolean isValidMoveO(char[] [] xoTable,int P2Row,int P2Column){
+        if(xoTable[P2Row][P2Column]== ' ') {
+            return true;
+        }
+        return false;
+    }
+}
